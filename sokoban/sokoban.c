@@ -495,7 +495,7 @@ int main(void)
 					imh = ih; jmh = jh;
 					path[0]='\0';
 					pcam = path;
-					while(touch_irq());
+					touch_init();	// Flush touch-screen status
 					c = '$';
 				}
 				else c = 'r';	/* c='r' restart level */
