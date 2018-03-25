@@ -22,6 +22,7 @@
 #include <libopencm3/stm32/usart.h>
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/cm3/systick.h>
+#include <string.h>
 #include <stdio.h>
 #include "charset.c"
 #include "bmp.c"
@@ -39,6 +40,7 @@ struct txtinfo stxt;
 extern uint16_t *pbigguy_img;
 
 extern const char *levels[];
+extern const char *solutions[];
 	
 char walls[12][10];
 char back_up[8][192];
@@ -204,7 +206,7 @@ void draw_level(char *pn)
 int imh, jmh;
 
 #define PTMAX 80
-char path[80];
+char path[640];
 
 char mcam[12][10];
 
@@ -312,7 +314,7 @@ int move(int di, int dj)
 	ih += di; jh += dj;
 	walls[ih][jh] = (walls[ih][jh]=='X'? 'm': 'M');
 	cell(ih, jh);
-	msleep(50);
+	msleep(100);
 	return 0;
 }
 
@@ -371,6 +373,30 @@ int select_level(void)
 	return niv;
 }
 
+void level_init(int level)
+{
+	lcd_rectangle(0,0,239,319,0xffff);
+	draw_level((char *)levels[level]);
+	sback_up();
+	stxt.f_size = 1;
+	stxt.f_line = 298;
+	stxt.f_column = 10;
+	stxt.f_fgcolor = lcd_cor565(0xff,0,0);
+	mprintf(lcd_putchar,"Level %d", level+1);
+	lcd_rectangle(163, 293, 233, 313, lcd_cor565(0x60,0x60,0x60));
+	lcd_rectangle(160, 290, 230, 310, lcd_cor565(0xB0,0xB0,0xB0));
+	lcd_rectangle(93, 293, 153, 313, lcd_cor565(0x60,0x60,0x60));
+	lcd_rectangle(90, 290, 150, 310, lcd_cor565(0xB0,0xB0,0xB0));
+	stxt.f_fgcolor = 0xffff;
+	stxt.f_size = 1;
+	stxt.f_line = 294;
+	stxt.f_column = 95;
+	mprintf(lcd_putchar,"Solve   S.Level");
+	lcd_show_rect(0,289,239,315);
+	ini_v = fim_v = 0;
+	imh = ih; jmh = jh;
+}
+
 int main(void)
 {
 	int c;
@@ -400,24 +426,7 @@ int main(void)
 	knt = 80;
 	xlevel = 0;
 	do	{
-		lcd_rectangle(0,0,239,319,0xffff);
-		draw_level((char *)levels[xlevel]);
-		sback_up();
-		stxt.f_size = 1;
-		stxt.f_line = 298;
-		stxt.f_column = 10;
-		stxt.f_fgcolor = lcd_cor565(0xff,0,0);
-		mprintf(lcd_putchar,"Level %d", xlevel+1);
-		lcd_rectangle(123, 293, 233, 313, lcd_cor565(0x60,0x60,0x60));
-		lcd_rectangle(120, 290, 230, 310, lcd_cor565(0xB0,0xB0,0xB0));
-		stxt.f_fgcolor = 0xffff;
-		stxt.f_size = 1;
-		stxt.f_line = 294;
-		stxt.f_column = 132;
-		mprintf(lcd_putchar,"Sel.Level");
-		lcd_show_rect(0,289,239,315);
-		ini_v = fim_v = 0;
-		imh = ih; jmh = jh;
+		level_init(xlevel);
 		path[0]='\0';
 		finished = 0;
 		pcam = path;
@@ -470,6 +479,14 @@ int main(void)
 					*pcam = '\0';
 					c = 'r';
 					break;
+				}
+				if((lcd_x > 90)  && (lcd_y > 288)) {
+					level_init(xlevel);
+					strcpy(path, solutions[xlevel]);
+					pcam = path;
+					touch_init();	// Flush touch-screen status
+					c = '$';
+					msleep(500);
 				}
 			} else {
 				imh = ih; jmh = jh;
@@ -532,6 +549,7 @@ int main(void)
 				xlevel = c - '0';
 				c = 'r';
 			}
+			U1putchar(c);
 			switch(c) {
 			case 'i': move(-1,0); break;
 			case 'j': move(0,-1); break;

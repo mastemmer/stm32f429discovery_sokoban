@@ -14,6 +14,64 @@
  * m Man with X
  * b Box with X
  * ******************************************/
+const char *solutions[]=
+{
+/* 1*/	"kikkmmmmjmkjjmjjiimmkkiikkiiijjjkmkmkmmjjmjjik",
+/* 2*/	"mmjjmmkkikkiiiijjijmkmjikkkmmmmjjiiimmmkkiiiij"
+	"jjkmmmjjmkmkiiiimmmkkiiiijjijmkmmmmmmkimjiiiiiikkmmmmjmjiiiimmmkkiiiijj",
+/* 3*/	"mkkkiiikkiijjmikkmmjjmmjmkkkijmjiiikkiijjmmmmjmkjjjikkmkiiimmkkmjjjkiii"
+	"kkiijjmmmmjmkiiiiijjmmkjiikkmmmmjjjmk",
+/* 4*/	"kiiiimmmkkmkiimjjjiiikkkkmjkiiiijjjjmmmkkikmjjjiiikkkkmmkmjjmmmjjjmjjik"
+	"kkkmkiiikiiiijjjjmmmmmiiiiikkkkmmmmjmmjjjmjjikkkkmkii",
+/* 5*/	"iiijmkmmmmmjmjjijiiikiikkikmmmmmiiiijjjmmmjmmkmkkikiiijimkmmmjmjjijiiik"
+	"iikkikmmmmiiijjjmmmjmmkkkjjjiikmjmkkjiiijjjmkkikmmjmkiiijjjiikmmjmkkikmmiiijmjjiikmjmkikmmm",
+/* 6*/	"ijmjiimmkkkkijjjmjijjiiijiikmmjmkmmkkkkkiiikiijjmjjjkkkikkmmjmmmjjjjjii"
+	"jiiikmmikkkkikmmmmiiijjjjjjmmmkmkkkmkkkijjkiijikijjjjkkkkmmmmmjjjijjiji"
+	"ikmjiiikmmikkkkkmmmmjjj",
+/* 7*/	"mjmmmjmmkiiiijiiikkmmjmjikkiijjjjmjmmkkkikmmmjmmkiiiijjjjiikikkkkmmjmmm"
+	"jjimkkiiikiijjjjmjmmkkkjjjiikikkkkmmjmmmjmmjiiimkkiiikiijjjjmjmmkkkjmmk"
+	"kiijjjjjjmmkkimjjiikkkkkjjjiikiijmmmmjjmmkkimjjiikkkkmmmmkkii",
+/* 8*/	"kikikikkmjmjijikkmmjmjimmjmjjkkikiijmikkiijmkmmjjikmkiijikmmmjjjmjmmkik"
+	"imjjikikjmmkikiijmkmjijmkmjijmkmjiikkkiikiijmkmmjjikmkii",
+/* 9*/	"mmmjmmmkkikkmkkiiiiiimmmmmmjjijjmjjiiikiikkkiijikkkjmkmmmmmmmjjijjkiiki"
+	"iimmmjmmkmkkiiiiiiiijjjmkikkmmmjkmmmmmjjijiikiiiijikmmmjjjjiiikmmjmkkkj"
+	"jmmjmmmkkikiikiiiimmmmjmmkkmkiiiiiiimmjjjjjmmjmmkkkkkmkiiiiiimmmmmjjjjj"
+	"iiiijiikmjmkkkjjmmmmkkiikiii",
+/*10*/	"mmmjjiiiijmkmmmjjiikikmiiiijmmkmmjjmmkkkkiiiikiijmjjmmmmiiiikkkmmjmmmjj"
+	"jkiijjjmmmkikkiiiijmkmmmjjjiikkjjmmkkkiiimmmkkiiikiijjjijmmmkmmmjjjiikk"
+	"ikmjiiikmikkkmmjikijjkmmmmmjjmmkkiiiiimmmjjjjjiikkkmijjjmmkkkiijiikmmii"
+	"jiikmmikkkmmjikijjkmmmmmmmjjiijjjiikkkmmiijiikmmmiiijiikmmmmjjmjmk iikmmmiiijiikmmmmjjmjmk",
+/*11*/	"kkmjmmmmjjikkiijjjjmmmmmmkkkkiimmjjjjiiiiiikkkkmmjmkjjmkiikiijjjjmmmmmmk"
+	"kkkiijiikiiiijmkmjjjijmmmmmiiiikkkkmmjmmkiiiijiikkmjijmkmjjjijmmmmiiikkk"
+	"kmmmmkkijmjiiiijiikkmjijmkmjjjijmmmiikkkkmmmkkijmjiiijiikkmjijmkmjjjijmmi"
+	"kkkkmmkkijmjiijiikkmjijmkmjjjijm",
+/*12*/	"kikkkkmkiiiiikijjjjjijmmikkkkkmmmmmjjjjjmjjiiikkkijjmjmmmkkikkkkkmmmjjik"
+	"mkiiiiiiikijjjjjijmmikkkkkmmmmmjjjjmjjjiiikikkjjmjmmmkkkikkmijjmkkkmkiii"
+	"iiikijjjjjijmmikkkkkmmmmmjjjjjmjjiiikkkijmjjmmmkkmmkijikkkkmkiiiiiikijjj"
+	"jjijmmikkkkkmmmmmmmmjjiijikkmkiiiiikijjjjjijmkkkkkmmmmmjjjjjmjjiiikkkkkij",
+/*13*/	"kijiikkmjijmikkkkkmmjjimkkiijjjkmmmmkmmjiiiikkiijjjmjmmmmkjiiiikikkkmmjj"
+	"mjkmkmmjijjiikkmkmjiiikkiijjmmmmiiijjjikkkmmmjjimkkiiijjjmkmmjimkkkikkii"
+	"jjjjkkmmmmkmmjiiiiimkkiijjjkmmmjjmmkjiikkmkmmjiiiiimkkiijj",
+/*14*/	"iijjjjjkmmmjjijiimmkmmjiiimkmmmmmmimkkkkkkiijjjjjkkkkkmmjjjjjjiiiimmkkkk"
+	"kmikmmjjjjjkkkkiijjjjjiijiikmmmmiiikkmkkkmmmkmjjjjkkkiiiijjjiiiikkkkmmjj"
+	"jkkmmjjjiiimkkkkiijjjjmmmjjmmmkkkkkiiimjjjiiiikkkkmmjjjkkmmjjjiii",
+/*15*/	"ikkkjiiiiijjijiikikkmmmmmmmmjmmkkijiiiiikkikiijjijmmmmmmmmiiiiikimmjjjik"
+	"jjiikkjjmmkkikkmjmjjijiikikkkkmkmmjmjjmmmmjjmmkkiiiiiimmmmjjmkmkiiiimmmm"
+	"kkkijjmjiiimmkkijmji",
+/*16*/	"kkkmmmmmmmjjjjijjmmmkkkkkkikijjjijiimmjjjiiiikkmmkmmkmkkiiiiiiijjjjjmikk"
+	"kkkmmmmmmmjjijiikiikjmmjjiikkmmjmmjjjiiiikkjjmmmmmmmkkiimmkkkkiijjijjkkm"
+	"jijmkiiijiijiikkkkkmmmmmmiiiiiijjjjjmmjmmmmmmmkkkkkkikijjjijiikiikjmmjji"
+	"ijiikkkkkmmmmmmiiiijjmmjmmkmkkiiiiijjmmjjiikkkjjjjiikkkkkmmmmmmiiiijjmmj"
+	"mmjmkkjiiikiijmmmmjmkiiiiijjjmmmmkkjjiiiikkkmmmmjjjmmmkki",
+/*17*/	"kkkmkkkiiikijjjjijmmikkkkmmmmjjjijjjiiiiijiikmkkikmmmkmjijmkkkkmmmmjjjij"
+	"jjiiiiijikkkikmmijjjmmmmmmkkkmkkkiiiijjijmkkkmmmmjjjijjmkkkkjjjjijiiiiii"
+	"kkkmmmkkkmmmkmmjiiiikijjjj",
+/*18*/	"mjjjjiikkikmjmikkmmjjiiiiiikkkmjjijmmmmiijjikkkijijmkmmjjikmkikikkmjjjmj"
+	"jikikkjjmmkikijmkkkijmjjmmmkkmmjjiiiiimmmmmkmmjikikiijm",
+/*19*/	"ikkiiiijjijjmikkmjkkkmmjimkmmjimjjikmkkiiijjmmiikkmmmjjijmmmmiiikkkiijmk"
+	"mjjijmmmiiikkiijmmkmjijmmkiiiiiijjjmkkikmmmmkmjijmkiiiiijjjmmmkijikkikmm"
+	"mkmmjjikkmiiikijjijjmkikmmmmkmjiiiijjmmjjmmkiijikmkijikkikmmmkmjmkkii"
+};
 
 const char *levels[]={
 	/** Level 1 **/
