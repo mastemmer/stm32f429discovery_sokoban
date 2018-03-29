@@ -68,9 +68,18 @@ const char *solutions[]=
 	"kkkmmmkkkmmmkmmjiiiikijjjj",
 /*18*/	"mjjjjiikkikmjmikkmmjjiiiiiikkkmjjijmmmmiijjikkkijijmkmmjjikmkikikkmjjjmj"
 	"jikikkjjmmkikijmkkkijmjjmmmkkmmjjiiiiimmmmmkmmjikikiijm",
-/*19*/	"ikkiiiijjijjmikkmjkkkmmjimkmmjimjjikmkkiiijjmmiikkmmmjjijmmmmiiikkkiijmk"
-	"mjjijmmmiiikkiijmmkmjijmmkiiiiiijjjmkkikmmmmkmjijmkiiiiijjjmmmkijikkikmm"
-	"mkmmjjikkmiiikijjijjmkikmmmmkmjiiiijjmmjjmmkiijikmkijikkikmmmkmjmkkii"
+/*19*/	"ikkiiiijjijjmikkmjkkkmmjimkmmjimjjikmkkiiijjmmiikkmmmjjijmmmmiiiikikmkmj"
+	"jijmmmiiikiiiijjjmkkikmmmmkmjijmmiikiiijjjmmkijikkikmmmmkmjijmikiiijjjmm"
+	"jmmkiijikmkijikkikmmmkmjiikkijjmmmkkijjiiijjmkikmmmmkmj",
+/*20*/	"",
+/*21*/	"",
+/*22*/	"ijkkikiijjjmmiikkkmmjmmkmmmjjjjiiijiikmmmmjmkikmmikkkiiijjijkmkkmmmjjjjii"
+	"ijiikmmmmmiiiikkkikiijjjmmiikkkmmjmjjijmmmmiiiikiikkmjijmmjmmmmkmkkkiiijj"
+	"ijijjmmkmmjmkkjiiijiikmmmmkmjiiiikkkikijjijmmikkmmmkmmmjjkkiiijjijijmmmm",
+/*23*/	"",
+/*24*/	"",
+/*25*/	"",
+	
 };
 
 const char *levels[]={
@@ -213,7 +222,7 @@ const char *levels[]={
 	"  W  W   W\n"
 	"  WWWWWWWW\n",
 	/** Level 13 **/
-	" WWWWWWWW\n"
+	"\n WWWWWWWW\n"
 	" WXXX   W\n"
 	" WX XBW W\n"
 	" W BW   W\n"
@@ -321,5 +330,18 @@ const char *levels[]={
 	"W   WM W\n"
 	"W   WWWW\n"
 	"WWWWW\n",
+	/** Level 22 **/
+	"   WWWWWW\n"
+	"   W    W\n"
+	" WWWBBB W\n"
+	" W B W  W\n"
+	" W  B  WW\n"
+	" W  WM  W\n"
+	" WW WWW W\n"
+	" W   WW W\n"
+	" WXXX   W\n"
+	" WWX WWWW\n"
+	"  WWXW\n"
+	"  WWWW\n",
 	NULL
 };

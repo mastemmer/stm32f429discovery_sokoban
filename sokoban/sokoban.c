@@ -24,6 +24,7 @@
 #include <libopencm3/cm3/systick.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 #include "charset.c"
 #include "bmp.c"
 
@@ -422,7 +423,7 @@ int main(void)
 		while(1);
 	}
 	U1puts("\r\nBackspace or blue button undo a move (back_up)\r\n'r' restart level\r\n"
-		"'+' Increment level\r\n");
+		"'+' Increment level\r\n's' Solve: do the job automaticaly\r\n");
 	knt = 80;
 	xlevel = 0;
 	do	{
@@ -473,22 +474,15 @@ int main(void)
 				}
 				pcam = path;
 				if(!finished)
-				if((lcd_x > 160)  && (lcd_y > 288)) {
+				if((lcd_x > 160)  && (lcd_y > 288)) {	/* Select level button */
 					xlevel = select_level();
 					lcd_show_frame();
 					*pcam = '\0';
 					c = 'r';
 					break;
 				}
-				if((lcd_x > 90)  && (lcd_y > 288)) {
-					level_init(xlevel);
-					strcpy(path, solutions[xlevel]);
-					pcam = path;
-					touch_init();	// Flush touch-screen status
-					c = '$';
-					msleep(500);
-				}
-			} else {
+				if((lcd_x > 90)  && (lcd_y > 288)) { c = 's'; }	/* Solve button */
+			} else {	/* else of if((*pcam=='\0') && (touch_get_size() > 0)) */
 				imh = ih; jmh = jh;
 				if(finished) finished--;
 			}
@@ -497,6 +491,7 @@ int main(void)
 			if(U1available()) {
 				c = U1getchar();
 				if(c==0x7f) c=8;
+				c = tolower(c);
 			}
 
 			if(GPIOA_IDR & 1) {	/* Check for blue button */
@@ -517,7 +512,14 @@ int main(void)
 				}
 				else c = 'r';	/* c='r' restart level */
 			}
-			
+			if(c == 's') {
+				level_init(xlevel);
+				strcpy(path, solutions[xlevel]);
+				pcam = path;
+				touch_init();	// Flush touch-screen status
+				c = '$';
+				msleep(200);
+			}
 			if(*pcam) c = *pcam++;
 			
 			
@@ -555,6 +557,7 @@ int main(void)
 			case 'j': move(0,-1); break;
 			case 'k': move(0, 1); break;
 			case 'm': move(1, 0); break;
+			case '+': xlevel++; c = 'r'; break;
 			}
 			lcd_z = 0;	/* Check for job done (no 'B') */
 			for(lcd_x=0; lcd_x < 10; lcd_x++) {
@@ -565,7 +568,6 @@ int main(void)
 					}
 				}
 			}
-			if(c == '+') lcd_z = 0;
 			if(lcd_z == 0) {
 				for(lcd_z = 12; lcd_z--; ) {
 					for(lcd_x = 0; lcd_x < 10; lcd_x++) {
@@ -600,9 +602,9 @@ int main(void)
 				} while(c != '+' && c!= ' ' && c!='\r' && c!='\n');
 				finished = 40;		
 				xlevel++;
-				if(levels[xlevel]==NULL) xlevel= 0;
 				c = 'r';
 			}
+		if(levels[xlevel]==NULL) xlevel= 0;
 		} while(c != 'r');
 	} while(1);
 	return 0;
