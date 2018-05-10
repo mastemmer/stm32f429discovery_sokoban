@@ -76,7 +76,10 @@ const char *solutions[]=
 /*22*/	"ijkkikiijjjmmiikkkmmjmmkmmmjjjjiiijiikmmmmjmkikmmikkkiiijjijkmkkmmmjjjjii"
 	"ijiikmmmmmiiiikkkikiijjjmmiikkkmmjmjjijmmmmiiiikiikkmjijmmjmmmmkmkkkiiijj"
 	"ijijjmmkmmjmkkjiiijiikmmmmkmjiiiikkkikijjijmmikkmmmkmmmjjkkiiijjijijmmmm",
-/*23*/	"",
+/*23*/	"jmmjjmmkijikmkiiijikikmmjmkjmmjjmmmkiiijikmkiikijjkmmmkmmjkiijjjmmmkiiiji"
+	"kmkiiikijjkmmmmjmmmmkijiiikkmmjmjiiijikmkiiiikijjkmmmmmkmmkmjjmjiiiijikmk"
+	"iikijmmmkkmkkijjjjkmmjjiijikmkiiikiijjmkikmmjmmmkmmmkiikijjjkmmjjiijikmki"
+	"iikijmmmmkkkkmmjjjjmjiiijikmkiiiikij",
 /*24*/	"",
 /*25*/	"",
 	
@@ -343,5 +346,18 @@ const char *levels[]={
 	" WWX WWWW\n"
 	"  WWXW\n"
 	"  WWWW\n",
+	/** Level 23 (Anderj Cerjak) */
+	"WWWWWW\n"
+	"WXX  W\n"
+	"WXX  W\n"
+	"WXX MWW\n"
+	"WWWBXXW\n"
+	"W   WWWWW\n"
+	"W B     W\n"
+	"W  W B  W\n"
+	"W BBB B W\n"
+	"W  B  WWW\n"
+	"WW  WWW\n"
+	" WWWW\n",
 	NULL
 };
