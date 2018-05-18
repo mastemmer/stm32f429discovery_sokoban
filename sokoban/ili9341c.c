@@ -1,9 +1,14 @@
 /**************************************************************************
  * Program STM32F429 Discovery using gcc and libopencm3
  * ili9341b.c  Graphics library for LCD ILI9341 using SPI interface
- * (c) Marcos Augusto Stemmer
  * Link:
  * https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf
+ * 
+ * (c) Marcos Augusto Stemmer
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  **********************************************************************/
 
 #include <libopencm3/stm32/spi.h>
@@ -124,7 +129,7 @@ void ili_9341_init(void)
 	ili_cmd(LCD_VCOM1); ili_data16(0x4515);	/*0xC5 VCOM Control 1 */
 	ili_cmd(LCD_VCOM2); ili_data8(0x90);	/*0xC7 VCOM Control 7 */
 	ili_cmd(LCD_MAC); 	/*0x36 Memory Access Control register*/
-	ili_data8(0xc8);	/*com 0x08 fica de cabeca para baixo */
+	ili_data8(0xc8);	/*With 0x08 turns upside down */
 	ili_cmd(LCD_RGB_INTERFACE); ili_data8(0xc2);	/*0xB0 RGB Interface Signal	*/
 	ili_cmd(LCD_PIXEL_FORMAT); ili_data8(0x55);	/*0x3A Pixel Format: 16 bit/pix */
 	ili_cmd(LCD_DFC);		/*0xB6 Display Function */
@@ -358,7 +363,7 @@ else	{
  * ******************************/
 #define NPONTOS 20000
 
-/*Gloval variables for lcd_flood */
+/*Global variables for lcd_flood */
 struct sponto {
 	uint16_t x, y;
 } *pontos;

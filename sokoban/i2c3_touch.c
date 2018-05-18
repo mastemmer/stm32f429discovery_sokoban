@@ -1,10 +1,14 @@
 /**************************************************************************
  * STM32F429 Discovery programming using gcc and libopencm3
  * Read Touch Screen
- * by Marcos Augusto Stemmer
+ * (c) Marcos Augusto Stemmer
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
 *********************************************************************
  * Touch Screen STMPE811 conected to I2c3 using pins
- * PA8=SCL3	PC9=SDA3	PA15=TP_INT1 (STMP811 interrupt)
+ * PA8=SCL3	PC9=SDA3	PA15=TP_INT1 (STMPE811 interrupt)
  * References:
  * www.st.com/resource/en/datasheet/CD00186725.pdf
  * www.st.com/resource/en/application_note/cd00203648.pdf
@@ -25,7 +29,7 @@
 
 uint32_t hi2c = I2C3;
 extern volatile uint32_t milisec;
-#define STMP811_DEV_ADDRESS 0x41
+#define STMPE811_DEV_ADDRESS 0x41
 /* Local function prototypes */
 int i2c3_set_reg(uint8_t reg);
 int i2c3_read_array(uint8_t reg, uint8_t *data, int nb);
@@ -57,7 +61,7 @@ void i2c3_init(void)
 	i2c_peripheral_enable(I2C3);
 }
 
-/* Auxiliary function to set STMP811 register number (internal use only) */
+/* Auxiliary function to set STMPE811 register number (internal use only) */
 int i2c3_set_reg(uint8_t reg)
 {
 	uint32_t reg32;
@@ -74,7 +78,7 @@ int i2c3_set_reg(uint8_t reg)
 		if(milisec >= 100) return -2;
 	};
 
-	i2c_send_7bit_address(hi2c, STMP811_DEV_ADDRESS, I2C_WRITE);
+	i2c_send_7bit_address(hi2c, STMPE811_DEV_ADDRESS, I2C_WRITE);
 
 	/* Wait to send i2c address */
 	milisec=0;
@@ -94,7 +98,7 @@ int i2c3_set_reg(uint8_t reg)
 }
 
 /***************************************************/
-/* Write to a 8 bit reg STMP811 */
+/* Write to a 8 bit reg STMPE811 */
 /***************************************************/
 int i2c3_write_reg8(uint8_t reg, uint8_t val)
 {
@@ -109,7 +113,7 @@ int i2c3_write_reg8(uint8_t reg, uint8_t val)
 }
 
 /******************************************/
-/*Read a 8 bit reg STMP811 */
+/*Read a 8 bit reg STMPE811 */
 /******************************************/
 int i2c3_read_reg8(uint8_t reg)
 {
@@ -122,7 +126,7 @@ int i2c3_read_reg8(uint8_t reg)
 		& (I2C_SR2(hi2c) & (I2C_SR2_MSL | I2C_SR2_BUSY)))){
 		if(milisec >= 100) return -10;
 	};
-	i2c_send_7bit_address(hi2c, STMP811_DEV_ADDRESS, I2C_READ);
+	i2c_send_7bit_address(hi2c, STMPE811_DEV_ADDRESS, I2C_READ);
 	/* Wait to send i2c address */
 	milisec=0;
 	while (!(I2C_SR1(hi2c) & I2C_SR1_ADDR)){
@@ -148,7 +152,7 @@ int i2c3_read_reg8(uint8_t reg)
 }
 
 /*******************************************/
-/* Read a 16 bit register of STMP811 */
+/* Read a 16 bit register of STMPE811 */
 /*******************************************/
 int i2c3_read_reg16(uint8_t reg)
 {
@@ -162,7 +166,7 @@ int i2c3_read_reg16(uint8_t reg)
 		if(milisec >= 100) return -17;
 	};
 	/* Send i2c address */
-	i2c_send_7bit_address(hi2c, STMP811_DEV_ADDRESS, I2C_READ);
+	i2c_send_7bit_address(hi2c, STMPE811_DEV_ADDRESS, I2C_READ);
 	milisec=0;
 	while (!(I2C_SR1(hi2c) & I2C_SR1_ADDR)){
 		if(milisec >= 100) return -18;
@@ -192,7 +196,7 @@ int i2c3_read_reg16(uint8_t reg)
 }
 
 /*****************************************
- * Read many bytes STMP811
+ * Read many bytes STMPE811
  * ***************************************/
 int i2c3_read_array(uint8_t reg, uint8_t *data, int nb)
 {
@@ -206,7 +210,7 @@ int i2c3_read_array(uint8_t reg, uint8_t *data, int nb)
 		if(milisec >= 100) return -17;
 	};
 
-	i2c_send_7bit_address(hi2c, STMP811_DEV_ADDRESS, I2C_READ);
+	i2c_send_7bit_address(hi2c, STMPE811_DEV_ADDRESS, I2C_READ);
 	milisec=0;
 	while (!(I2C_SR1(hi2c) & I2C_SR1_ADDR)){
 		if(milisec >= 100) return -18;
@@ -261,7 +265,7 @@ void exti15_10_isr(void)
 					k4=4*k;
 					ts_x[k] = (data[k4]<<4) | ((data[k4+1]>>4) & 0x0f);
 					ts_y[k] = ((data[k4+1] << 8) & 0xf00) | data[k4+2];
-					ts_z[k] = data[k4+3];	/* rz indica a pressao do toque */
+					ts_z[k] = data[k4+3];	/* rz indicates touch preasure */
 					}
 				i2c3_write_reg8(0x0b, 0x02);	/* clear buffer theshold interrupt flag */
 				}
@@ -280,7 +284,7 @@ struct regset {
 
 /*******************************************************
  * Touch screen initialization sequence
- * Retorn 0 if ok; -1 on error;	
+ * Return 0 if ok; -1 on error;	
 ********************************************************/
 
 int touch_init(void)
@@ -412,7 +416,7 @@ int touch_calibra(struct txtinfo *ptxt)
 	ptxt->f_size = 1;
 	ptxt->f_line = 110;
 	ptxt->f_column = 30;
-	mprintf(lcd_putchar,"by Marcos A. Stemmer");
+	mprintf(lcd_putchar,"(c) Marcos A. Stemmer");
 	ptxt->f_line = 200;
 	ptxt->f_column = 14;
 	mprintf(lcd_putchar,"Touch the target to");
