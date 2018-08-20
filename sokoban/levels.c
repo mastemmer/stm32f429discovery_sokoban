@@ -359,5 +359,18 @@ const char *levels[]={
 	"W  B  WWW\n"
 	"WW  WWW\n"
 	" WWWW\n",
+	/** Level 24 **/
+	"W     WW\n"
+	"W  XXX WWW\n"
+	"W  XWX   W\n"
+	"W  XXXW  W\n"
+	"WW    W WW\n"
+	"WWWWWWW W\n"
+	"W   W   W\n"
+	"W B BBW W\n"
+	"W M     W\n"
+	"W BBBBB W\n"
+	"W     WWW\n"
+	"WWWWWWW\n",
 	NULL
 };
