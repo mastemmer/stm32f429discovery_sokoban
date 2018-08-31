@@ -80,7 +80,14 @@ const char *solutions[]=
 	"kmkiiikijjkmmmmjmmmmkijiiikkmmjmjiiijikmkiiiikijjkmmmmmkmmkmjjmjiiiijikmk"
 	"iikijmmmkkmkkijjjjkmmjjiijikmkiiikiijjmkikmmjmmmkmmmkiikijjjkmmjjiijikmki"
 	"iikijmmmmkkkkmmjjjjmjiiijikmkiiiikij",
-/*24*/	"",
+/*24*/
+	"kkkkkiijjmikkmmjjjjiijjmmmmkkkkiikkmjjijjjiijjmmkkkkkmkiiiiiikijjijjjmmkki"
+	"kijjijmmjmkmkkiikkmmmmmmjjjjiijmjmkkkkkmkiiiiiikijjijjjmmmkkiikijjijmmikkk"
+	"mkmmmmmmjjjjjjmmkijikkkkkmkiiiiiikijjijjjjmmmkkkiikijjijmkkkmkmmmmmmjjjjjm"
+	"mkijikkkkmkiiiiiikijjijjjjmmmkkkiikijjjijmkkkkmkmmmmmmjjjjmmkijikkkmkiiiii"
+	"ikijjijjjjjmmkmkkkiikijjjkkkmkmmmmmmjjjmmkijikkmkiiiiiikijjijjijjjmmmkmkkk"
+	"iikijmkkmmmmjjmikkmmmjjjikkmkiiiiiikijjijmkkmmmmmmjjjjikmkkkiijjmjmkkmkiii"
+	"iiikijjijijjmkijjjmkkjjmmkijik",
 /*25*/	"",
 	
 };
