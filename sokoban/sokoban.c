@@ -4,18 +4,18 @@
  * 
  * Copyright (C) 2018 Marcos Augusto Stemmer <mastemmer@gmail.com>
  *
- * This library is free software: you can redistribute it and/or modify
+ * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ****************************************************************************/
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
@@ -432,7 +432,6 @@ int main(void)
 		finished = 0;
 		pcam = path;
 		touch_init();
-		c = '$';
 		do	{
 			c = '$';
 			if((*pcam=='\0') && (touch_get_size() > 0)) {
@@ -569,6 +568,7 @@ int main(void)
 				}
 			}
 			if(lcd_z == 0) {
+				/* Job done: blink boxes 6 times */
 				for(lcd_z = 12; lcd_z--; ) {
 					for(lcd_x = 0; lcd_x < 10; lcd_x++) {
 						for(lcd_y = 0; lcd_y < 12; lcd_y++) {
@@ -594,14 +594,14 @@ int main(void)
 					else knt--;
 				} while(knt > 0);
 				c = '$';
-				do	{
+				do	{	/* Wait for touch or Enter key */
 					if(U1available()) {
 						c = U1getchar();
 					}
 					if(touch_irq()) break;
 				} while(c != '+' && c!= ' ' && c!='\r' && c!='\n');
 				finished = 40;		
-				xlevel++;
+				xlevel++;	/* Go to next level */
 				c = 'r';
 			}
 		if(levels[xlevel]==NULL) xlevel= 0;

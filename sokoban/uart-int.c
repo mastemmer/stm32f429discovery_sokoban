@@ -55,7 +55,7 @@ while(((tx_tail - tx_head) & (FIFO_SIZE_TX-1)) > (FIFO_SIZE_TX - 4));
 /* Place a character at the end of the line */
 fifo_tx[tx_tail] = c;
 tx_tail = (tx_tail + 1) & (FIFO_SIZE_TX-1);
-/* If idele send a character to start transmitting */
+/* If idle send a character to start transmitting */
 if(tx_idle) {
 	c = USART_SR(USART1);	/* Must read SR to clear flags */
 	USART_DR(USART1) = fifo_tx[tx_head];
@@ -78,10 +78,11 @@ int U1available(void)
 return ((rx_tail - rx_head) & (FIFO_SIZE_RX-1));
 }
 
+/* Take a character from the head of fifo_rx */
 int U1getchar(void)
 {
 int c;
-while ( !U1available());
+while ( !U1available());	/* Wait if rx fifo is empty */
 c = fifo_rx[rx_head];
 rx_head = (rx_head + 1) & (FIFO_SIZE_RX-1);
 return c & 0xff;
@@ -109,7 +110,7 @@ nvic_enable_irq(NVIC_USART1_IRQ);
 rx_head = rx_tail = 0;
 tx_head = tx_tail = 0;
 tx_idle = 1;
-/* Enable RXNEIE and TCIE of USART1 */
+/* Enable RXNEIE and TCIE interrupts of USART1 */
 USART_CR1(USART1) |= USART_CR1_RXNEIE | USART_CR1_TCIE;
 }
 
@@ -136,8 +137,8 @@ do	{
 			U1putchar(8); 
 			}
 		}
-	else if(k<nmax) txt[k++]=c;
-	} while(c!='\n' && c!='\r');
+	else if(k<nmax) txt[k++]=c;	/* Read no more than nmax characters */
+	} while(c!='\n' && c!='\r');	/* ENTER key may be '\n' or '\r' */
 txt[k-1]='\0';
 }
 
