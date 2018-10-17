@@ -10,8 +10,8 @@
 This program is made for the ST-Microelectronics STM32F29 Discovery development kit
 using the library libopencm3.
 Besides being fun to play, this program include some usefull support modules such as
-USART with interrupts, mprintf (a lighter version of prinf), ili9341.c: LCD setup and
-basic graphics library. The module i3c3_touch.c uses i2c3 to read STMP811 touch-screen.
+USART with interrupts, mprintf (a lighter version of printf), ili9341.c: LCD setup and
+basic graphics library. The module i3c3_touch.c uses i2c3 to read STMPE811 touch-screen.
 The module sdram.c, written by Chuck McManis <cmcmanis@mcmanis.com>, was taken unmodified.
 The Makefile was made to support compilation both in posix (Linux, Unix, Mac) 
 and in Windows command line.
@@ -56,6 +56,8 @@ make flash
 ==========
 To play:
 ==========
+A serial interface using UART1 may be used to communicate a as input to play the game, 
+but you may play using only the touch screen.
 Touch where you want the guy to move.
 If there is a box in the same line of movement it will be pushed.
 

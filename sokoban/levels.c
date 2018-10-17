@@ -40,7 +40,8 @@ const char *solutions[]=
 /*10*/	"mmmjjiiiijmkmmmjjiikikmiiiijmmkmmjjmmkkkkiiiikiijmjjmmmmiiiikkkmmjmmmjj"
 	"jkiijjjmmmkikkiiiijmkmmmjjjiikkjjmmkkkiiimmmkkiiikiijjjijmmmkmmmjjjiikk"
 	"ikmjiiikmikkkmmjikijjkmmmmmjjmmkkiiiiimmmjjjjjiikkkmijjjmmkkkiijiikmmii"
-	"jiikmmikkkmmjikijjkmmmmmmmjjiijjjiikkkmmiijiikmmmiiijiikmmmmjjmjmk iikmmmiiijiikmmmmjjmjmk",
+	"jiikmmikkkmmjikijjkmmmmmmmjjiijjjiikkkmmiijiikmmmiiijiikmmmmjjmjmk iikmm"
+	"miiijiikmmmmjjmjmk",
 /*11*/	"kkmjmmmmjjikkiijjjjmmmmmmkkkkiimmjjjjiiiiiikkkkmmjmkjjmkiikiijjjjmmmmmmk"
 	"kkkiijiikiiiijmkmjjjijmmmmmiiiikkkkmmjmmkiiiijiikkmjijmkmjjjijmmmmiiikkk"
 	"kmmmmkkijmjiiiijiikkmjijmkmjjjijmmmiikkkkmmmkkijmjiiijiikkmjijmkmjjjijmmi"
