@@ -1,5 +1,5 @@
 /**************************************************************************
- * Program for STM32F429 Disbovery using gbb and libopencm3
+ * Program for STM32F429 Disbovery using gcc and libopencm3
  * Sokoban puzzle game
  * by Marcos Augusto Stemmer
  * Levels
@@ -24,7 +24,8 @@ const char *solutions[]=
 /* 4*/	"kiiiimmmkkmkiimjjjiiikkkkmjkiiiijjjjmmmkkikmjjjiiikkkkmmkmjjmmmjjjmjjik"
 	"kkkmkiiikiiiijjjjmmmmmiiiiikkkkmmmmjmmjjjmjjikkkkmkii",
 /* 5*/	"iiijmkmmmmmjmjjijiiikiikkikmmmmmiiiijjjmmmjmmkmkkikiiijimkmmmjmjjijiiik"
-	"iikkikmmmmiiijjjmmmjmmkkkjjjiikmjmkkjiiijjjmkkikmmjmkiiijjjiikmmjmkkikmmiiijmjjiikmjmkikmmm",
+	"iikkikmmmmiiijjjmmmjmmkkkjjjiikmjmkkjiiijjjmkkikmmjmkiiijjjiikmmjmkkikm"
+	"miiijmjjiikmjmkikmmm",
 /* 6*/	"ijmjiimmkkkkijjjmjijjiiijiikmmjmkmmkkkkkiiikiijjmjjjkkkikkmmjmmmjjjjjii"
 	"jiiikmmikkkkikmmmmiiijjjjjjmmmkmkkkmkkkijjkiijikijjjjkkkkmmmmmjjjijjiji"
 	"ikmjiiikmmikkkkkmmmmjjj",
@@ -89,7 +90,10 @@ const char *solutions[]=
 	"ikijjijjjjjmmkmkkkiikijjjkkkmkmmmmmmjjjmmkijikkmkiiiiiikijjijjijjjmmmkmkkk"
 	"iikijmkkmmmmjjmikkmmmjjjikkmkiiiiiikijjijmkkmmmmmmjjjjikmkkkiijjmjmkkmkiii"
 	"iiikijjijijjmkijjjmkkjjmmkijik",
-/*25*/	"",
+/*25*/	"kkiijjkkmmjjijiiiiiiimjjiikkmmmmmmmmkmkkiiiijijkmkmmmmjjijiiiiiikkiikkmmmm"
+	"jkiiiijjmmjjjjiikkkkmmjjimkkiijjjkmmmmmmmmkmkkiijjmjiiiiiiimkkiijjmmmmmmmk"
+	"kkiijjkkmmjjjiiiiikkiijjmikkmmjjjkmmmkkkijjmjiiikkiijjmikkmmjjmmmmmkiikijm"
+	"jiiimmkkkkiiiijjkkmmjj",
 	
 };
 
@@ -380,5 +384,18 @@ const char *levels[]={
 	"W BBBBB W\n"
 	"W     WWW\n"
 	"WWWWWWW\n",
+	/** Level 25 **/
+	"WWWWWWWWW\n"
+	"WXX X   W\n"
+	"W WXW W W\n"
+	"WXX X B W\n"
+	"WWW WWW W\n"
+	"  W B B W\n"
+	"  W B  WW\n"
+	"  W BW W\n"
+	"  W B  W\n"
+	"  W BW W\n"
+	"  WWM  W\n"
+	"   WWWWW\n",
 	NULL
 };
