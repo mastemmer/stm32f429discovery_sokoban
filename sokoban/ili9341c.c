@@ -41,7 +41,7 @@ int i2c3_read_array(uint8_t reg, uint8_t *data, int nb);
 /* Context of text: Cursor location, color and size of text */
 struct txtinfo *ptxinfo;
 /***************************************************************************
- * Configura as portas e a interface SPI5 usada para comunicar com o display
+ * Setup ports and SPI5 interface to comuncate with ili9341 lcd
  * PF7	SPI5_SCK		SPI5 clock
  * PF9	SPI5_MOSI		SPI5 data output
  * PC1	SPI5_MEMS_L3GD20	Chip Select of Acelerometer MEMS_L3GD20
@@ -411,6 +411,7 @@ void lcd_flood(int x, int y, int cor)
 	pontos[0].y = y;
 	ui = x+y*LCD_WIDTH;
 	cori = ppix[ui];
+	if(cori == corf) return;
 	ppix[ui] = cor;
 	do	{
 		for(k = 0; k < npontos; k++) {

@@ -73,7 +73,9 @@ const char *solutions[]=
 /*19*/	"ikkiiiijjijjmikkmjkkkmmjimkmmjimjjikmkkiiijjmmiikkmmmjjijmmmmiiiikikmkmj"
 	"jijmmmiiikiiiijjjmkkikmmmmkmjijmmiikiiijjjmmkijikkikmmmmkmjijmikiiijjjmm"
 	"jmmkiijikmkijikkikmmmkmjiikkijjmmmkkijjiiijjmkikmmmmkmj",
-/*20*/	"",
+/*20*/	"jjjjmkjijjmmmkkkkiikijjkmmmjjjjiikkkjjjmmkkkkiijjjiiiiiijjmkikmmmmmjmmmk"
+	"kkkiikiiijjiijjkkmmkkiijjkkmmmmmjjikmkiiimmjmmmjjjjiikkkjjjmmkkkkiikijmj"
+	"jjiiiiiijjmkikmmmmmjmkkkjjjmmkkkkiikiiijjiijjijjmkikmmmmiiikkkkmmm",
 /*21*/	"",
 /*22*/	"ijkkikiijjjmmiikkkmmjmmkmmmjjjjiiijiikmmmmjmkikmmikkkiiijjijkmkkmmmjjjjii"
 	"ijiikmmmmmiiiikkkikiijjjmmiikkkmmjmjjijmmmmiiiikiikkmjijmmjmmmmkmkkkiiijj"
@@ -325,15 +327,17 @@ const char *levels[]={
 	"   WXW\n"
 	"   WWW\n",
 	/** Level 20 **/
-	"\n WWWWWWWW\n"
-	" W  W   W\n"
-	" W b  X W\n"
-	" W b b  W\n"
-	" W bb WWW\n"
-	" W b b  W\n"
-	" W bB b W\n"
-	" W M W  W\n"
-	" WWWWWWWW\n",
+	"WWWWW\n"
+	"W   WWWWW\n"
+	"W B B B W\n"
+	"WWW W W W\n"
+	"  W W   W\n"
+	" WW WWW WW\n"
+	" W XXXXXMW\n"
+	" W B B   W\n"
+	" W WWW WWW\n"
+	" W     W\n"
+	" WWWWWWW\n",
 	/** Level 21 **/
 	"WWWW WWWW\n"
 	"W XWWW  W\n"
