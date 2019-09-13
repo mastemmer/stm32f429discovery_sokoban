@@ -1,9 +1,13 @@
 /******************************************************
  * Native PC program to convert BMP image to a C header
  * with raw data of an image 320x240 565 color format
- * by Marcos A. Stemmer
  * Command line:
  * bmp2c arquivo-bitmap > bmp.c
+ * (c) Marcos Augusto Stemmer
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  * ****************************************************/
 #include <stdio.h>
 #include <string.h>

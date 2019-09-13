@@ -34,10 +34,11 @@ const char *solutions[]=
 	"kiijjjjjjmmkkimjjiikkkkkjjjiikiijmmmmjjmmkkimjjiikkkkmmmmkkii",
 /* 8*/	"kikikikkmjmjijikkmmjmjimmjmjjkkikiijmikkiijmkmmjjikmkiijikmmmjjjmjmmkik"
 	"imjjikikjmmkikiijmkmjijmkmjijmkmjiikkkiikiijmkmmjjikmkii",
-/* 9*/	"mmmjmmmkkikkmkkiiiiiimmmmmmjjijjmjjiiikiikkkiijikkkjmkmmmmmmmjjijjkiiki"
-	"iimmmjmmkmkkiiiiiiiijjjmkikkmmmjkmmmmmjjijiikiiiijikmmmjjjjiiikmmjmkkkj"
-	"jmmjmmmkkikiikiiiimmmmjmmkkmkiiiiiiimmjjjjjmmjmmkkkkkmkiiiiiimmmmmjjjjj"
-	"iiiijiikmjmkkkjjmmmmkkiikiii",
+/* 9*/	"mmmmmjmmmkkikkmkkiiiiijjiijikkkjjmmmkijikkjmmkmmmmmjjijiikiiikiijjmkkjm"
+	"mmmjmmjmjjiiikiikkjjmmjmmmkkikiikiiiijikkjmmmjjjjiiikmmjmkkkjjmmjmmmkki"
+	"kiikiiikiijjmkmmjjjmmjmmkiiiikkkmmjmmjmjijiikiijiikmjmkkkjjmmjmmkkkiiki"
+	"iiijikmmmmmjmmjjiiiijiikmjmkkkjjmmmmkkiikiiiimkmkmmmmjjjjmjiiiiijiikmjm"
+	"kkkjjmmmmkkiikiii",
 /*10*/	"mmmjjiiiijmkmmmjjiikikmiiiijmmkmmjjmmkkkkiiiikiijmjjmmmmiiiikkkmmjmmmjj"
 	"jkiijjjmmmkikkiiiijmkmmmjjjiikkjjmmkkkiiimmmkkiiikiijjjijmmmkmmmjjjiikk"
 	"ikmjiiikmikkkmmjikijjkmmmmmjjmmkkiiiiimmmjjjjjiikkkmijjjmmkkkiijiikmmii"
@@ -76,7 +77,7 @@ const char *solutions[]=
 /*20*/	"jjjjmkjijjmmmkkkkiikijjkmmmjjjjiikkkjjjmmkkkkiijjjiiiiiijjmkikmmmmmjmmmk"
 	"kkkiikiiijjiijjkkmmkkiijjkkmmmmmjjikmkiiimmjmmmjjjjiikkkjjjmmkkkkiikijmj"
 	"jjiiiiiijjmkikmmmmmjmkkkjjjmmkkkkiikiiijjiijjijjmkikmmmmiiikkkkmmm",
-/*21*/	"",
+/*21*/	"j",
 /*22*/	"ijkkikiijjjmmiikkkmmjmmkmmmjjjjiiijiikmmmmjmkikmmikkkiiijjijkmkkmmmjjjjii"
 	"ijiikmmmmmiiiikkkikiijjjmmiikkkmmjmjjijmmmmiiiikiikkmjijmmjmmmmkmkkkiiijj"
 	"ijijjmmkmmjmkkjiiijiikmmmmkmjiiiikkkikijjijmmikkmmmkmmmjjkkiiijjijijmmmm",
@@ -193,11 +194,11 @@ const char *levels[]={
 	"WWWWWWWWWW\n"
 	"W  W XXXXW\n"
 	"W BW XXXXW\n"
-	"W MWWBW WW\n"
+	"W MWWBBWWW\n"
 	"W     B W\n"
 	"WWBWWBW W\n"
 	"W  W  W W\n"
-	"W  W WWBW\n"
+	"W  W WW W\n"
 	"W B B   W\n"
 	"W   W   W\n"
 	"WWWWWWWWW\n",
@@ -339,16 +340,18 @@ const char *levels[]={
 	" W     W\n"
 	" WWWWWWW\n",
 	/** Level 21 **/
-	"WWWW WWWW\n"
-	"W XWWW  W\n"
-	"W X  B  W\n"
-	"W XWWW  W\n"
-	"WWXW B WW\n"
-	" W   B W\n"
-	"WWXBWB W\n"
-	"W   WM W\n"
-	"W   WWWW\n"
-	"WWWWW\n",
+	"WWWWXXXXXW\n"
+	"W  W     W\n"
+	"W BW     W\n"
+	"W  WW WWWW\n"
+	"W        W\n"
+	"WWBWW W  W\n"
+	"W  W  W  W\n"
+	"W BB WW  W\n"
+	"W  BMWW WW\n"
+	"W       W\n"
+	"W   W   W\n"
+	"WWWWWWWWW\n",
 	/** Level 22 **/
 	"   WWWWWW\n"
 	"   W    W\n"

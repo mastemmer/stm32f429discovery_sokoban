@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
 *********************************************************************
- * Touch Screen STMPE811 conected to I2c3 using pins
+ * Touch Screen STMPE811 connected to I2c3 using pins
  * PA8=SCL3	PC9=SDA3	PA15=TP_INT1 (STMPE811 interrupt)
  * References:
  * www.st.com/resource/en/datasheet/CD00186725.pdf

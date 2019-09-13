@@ -1,9 +1,6 @@
 ###############################################################
 # Makefile to compile sokoban game for STM32 DISCOVERY using libopencm3
-#
-# Since there are some additional tasks to compile, i use an independent Makefile
-# There is still the Makefile.bk that uses the included files like the other examples.
-# I use the same Makefile to compile in Linux and in Windows.
+# The same Makefile may be used to compile in Linux or in Windows.
 
 ## Copyright (C) 2018 Marcos Augusto Stemmer <mastemmer@gmail.com>
 ##
@@ -114,7 +111,7 @@ LDFLAGS		+= -Wl,-Map=$(*).map
 LDFLAGS		+= -Wl,--gc-sections
 
 ###############################################################################
-# Used libraries
+# Libraries
 
 LDLIBS		+= -l$(LIBNAME)
 LDLIBS		+= -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
@@ -147,7 +144,7 @@ bmp.c: bmp2c $(BITMAPS)
 $(TARGET).elf: $(OBJECTS) $(LDSCRIPT) $(LIB_DIR)/lib$(LIBNAME).a
 	@echo LD   $(OBJECTS)
 	$(Q)$(LD) $(LDFLAGS) $(ARCH_FLAGS) $(OBJECTS) $(LDLIBS) -o $(TARGET).elf
-
+# Commands to clean and to program flash are different in Wndows
 ifeq ($(WINDOWS),yes)
 clean:
 	-del $(OBJECTS) *.d $(TARGET).hex $(TARGET).bin $(TARGET).elf .map bmp2c.exe bmp.c

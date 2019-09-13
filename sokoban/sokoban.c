@@ -503,6 +503,7 @@ int main(void)
 				if(ini_v != fim_v) {
 					fim_v = (fim_v - 1) & 7;
 					draw_level(back_up[fim_v]);
+					U1puts("\b \b");
 					imh = ih; jmh = jh;
 					path[0]='\0';
 					pcam = path;
