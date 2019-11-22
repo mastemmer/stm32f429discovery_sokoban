@@ -62,6 +62,7 @@ void i2c3_init(void)
 }
 
 /* Auxiliary function to set STMPE811 register number (internal use only) */
+/* Return 0 if successfull */
 int i2c3_set_reg(uint8_t reg)
 {
 	uint32_t reg32;
@@ -99,6 +100,7 @@ int i2c3_set_reg(uint8_t reg)
 
 /***************************************************/
 /* Write to a 8 bit reg STMPE811 */
+/* Return 0 if successfull */
 /***************************************************/
 int i2c3_write_reg8(uint8_t reg, uint8_t val)
 {
@@ -113,7 +115,8 @@ int i2c3_write_reg8(uint8_t reg, uint8_t val)
 }
 
 /******************************************/
-/*Read a 8 bit reg STMPE811 */
+/* Read a 8 bit reg STMPE811 */
+/* Return byte read; negative result indicate error */
 /******************************************/
 int i2c3_read_reg8(uint8_t reg)
 {
@@ -153,6 +156,7 @@ int i2c3_read_reg8(uint8_t reg)
 
 /*******************************************/
 /* Read a 16 bit register of STMPE811 */
+/* Return word read; negative result indicate error */
 /*******************************************/
 int i2c3_read_reg16(uint8_t reg)
 {
@@ -197,6 +201,7 @@ int i2c3_read_reg16(uint8_t reg)
 
 /*****************************************
  * Read many bytes STMPE811
+ * Return 0 if successfull
  * ***************************************/
 int i2c3_read_array(uint8_t reg, uint8_t *data, int nb)
 {
@@ -278,6 +283,7 @@ void exti15_10_isr(void)
 	exti_reset_request(EXTI15);
 }
 
+/* Used for the initialization values */
 struct regset {
 	uint8_t reg,val;
 };
@@ -368,7 +374,7 @@ int touch_read_raw_xy(int *x, int *y, int *z)
 	return size;
 }
 
-/* These global variables are coeficients used to map points to LCD coordenates */
+/* These global variables are coefficients used to map points to LCD coordenates */
 int multix=0x4000, multiy=0x4000, somax=0, somay=0;
 
 enum state_name { INITIAL, CALIBRA1, CALIBRA2, DONE };
